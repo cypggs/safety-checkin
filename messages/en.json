@@ -1,0 +1,76 @@
+{
+  "app": {
+    "title": "Safety Check-in",
+    "description": "A lightweight safety tool for solo-living individuals"
+  },
+  "setup": {
+    "title": "First Time Setup",
+    "subtitle": "Please fill in your basic information",
+    "name": {
+      "label": "Your Name",
+      "placeholder": "Enter your name"
+    },
+    "emergencyEmail": {
+      "label": "Emergency Contact Email",
+      "placeholder": "example@email.com",
+      "help": "If you don't check in for 2 consecutive days, we'll send an alert to this email"
+    },
+    "submit": "Get Started",
+    "processing": "Setting up...",
+    "error": "Setup failed, please try again"
+  },
+  "checkin": {
+    "button": "Check In",
+    "buttonChecked": "Checked In Today",
+    "lastCheckin": "Last Check-in",
+    "streak": "{days} day streak",
+    "reminder": "If you don't check in for 2 consecutive days, the system will automatically email your emergency contact on day 3",
+    "success": "Checked in successfully",
+    "error": "Check-in failed, please retry",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "daysAgo": "{days} days ago",
+    "never": "Never checked in"
+  },
+  "settings": {
+    "title": "Settings",
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter your name"
+    },
+    "emergencyEmail": {
+      "label": "Emergency Contact Email",
+      "placeholder": "example@email.com"
+    },
+    "history": {
+      "title": "Check-in History",
+      "empty": "No check-in records yet",
+      "last30days": "Last 30 days"
+    },
+    "privacy": "Privacy Policy",
+    "save": "Save",
+    "saving": "Saving...",
+    "saved": "Saved successfully",
+    "error": "Save failed",
+    "deleteAccount": "Delete Account",
+    "deleteConfirm": "Are you sure you want to delete your account? This action cannot be undone.",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "nav": {
+    "home": "Home",
+    "settings": "Settings"
+  },
+  "language": {
+    "switch": "Switch Language",
+    "zh": "中文",
+    "en": "English"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "back": "Back",
+    "close": "Close"
+  }
+}

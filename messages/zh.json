@@ -1,0 +1,76 @@
+{
+  "app": {
+    "title": "平安签到",
+    "description": "为独居人群打造的轻量化安全工具"
+  },
+  "setup": {
+    "title": "初次使用",
+    "subtitle": "请填写您的基本信息",
+    "name": {
+      "label": "您的姓名",
+      "placeholder": "请输入姓名"
+    },
+    "emergencyEmail": {
+      "label": "紧急联系人邮箱",
+      "placeholder": "example@email.com",
+      "help": "如果您连续2天未签到，我们将向此邮箱发送提醒"
+    },
+    "submit": "开始使用",
+    "processing": "设置中...",
+    "error": "设置失败，请重试"
+  },
+  "checkin": {
+    "button": "签到",
+    "buttonChecked": "今日已签到",
+    "lastCheckin": "上次签到",
+    "streak": "连续签到 {days} 天",
+    "reminder": "如连续2天未签到，系统将于次日自动发送邮件给您的紧急联系人",
+    "success": "签到成功",
+    "error": "签到失败，请重试",
+    "today": "今天",
+    "yesterday": "昨天",
+    "daysAgo": "{days} 天前",
+    "never": "从未签到"
+  },
+  "settings": {
+    "title": "设置",
+    "name": {
+      "label": "姓名",
+      "placeholder": "请输入姓名"
+    },
+    "emergencyEmail": {
+      "label": "紧急联系人邮箱",
+      "placeholder": "example@email.com"
+    },
+    "history": {
+      "title": "签到历史",
+      "empty": "暂无签到记录",
+      "last30days": "最近30天"
+    },
+    "privacy": "隐私政策",
+    "save": "保存",
+    "saving": "保存中...",
+    "saved": "保存成功",
+    "error": "保存失败",
+    "deleteAccount": "删除账户",
+    "deleteConfirm": "确定要删除您的账户吗？此操作无法撤销。",
+    "cancel": "取消",
+    "delete": "删除"
+  },
+  "nav": {
+    "home": "首页",
+    "settings": "设置"
+  },
+  "language": {
+    "switch": "切换语言",
+    "zh": "中文",
+    "en": "English"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "出错了",
+    "retry": "重试",
+    "back": "返回",
+    "close": "关闭"
+  }
+}
