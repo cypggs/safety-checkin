@@ -3,8 +3,6 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Geist, Noto_Sans_SC } from 'next/font/google';
 import '../globals.css';
-import { notFound } from 'next/navigation';
-import { locales } from '@/i18n';
 
 // Fonts
 const geistSans = Geist({
@@ -33,13 +31,6 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-
-  // Validate locale
-  if (!locales.includes(locale as any)) {
-    notFound();
-  }
-
-  // Get translations
   const messages = await getMessages();
 
   return (
