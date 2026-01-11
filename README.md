@@ -180,3 +180,13 @@ If you find this project helpful, please give it a ⭐️ on GitHub!
 ---
 
 **Note**: This is a safety tool, not a replacement for regular communication with family and friends. Always maintain basic contact with your loved ones.
+
+---
+
+## Disclaimer
+
+This project is inspired by the innovative idea from the 95后 (post-95 generation) developers who created "死了么" (Are You Dead Yet?). The original concept and design philosophy belong to them.
+
+This project is created solely for learning and exploration purposes. In the era of AI, imagination is more important than knowledge. We respect creativity and intellectual property.
+
+All credits for the original idea go to the visionary developers at 月境（郑州）技术服务有限公司.
