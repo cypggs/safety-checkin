@@ -144,7 +144,7 @@ async function sendAlert(user: any) {
     if (resend) {
       try {
         await resend.emails.send({
-          from: 'Safety Check-in <noreply@yourdomain.com>', // Update with your verified domain
+          from: 'Safety Check-in <onboarding@resend.dev>', // Use Resend's verified test address
           to: emergencyEmail,
           subject: emailContent.subject,
           html: emailContent.html,
