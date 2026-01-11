@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     }
 
     const { data, error } = await supabase
-      .from('users')
+      .from('safety_users')
       .select('*')
       .eq('device_fingerprint', deviceFingerprint)
       .single();
@@ -59,7 +59,7 @@ export async function PUT(request: NextRequest) {
     if (language !== undefined) updateData.language = language;
 
     const { data, error } = await supabase
-      .from('users')
+      .from('safety_users')
       .update(updateData)
       .eq('device_fingerprint', deviceFingerprint)
       .select()
@@ -89,7 +89,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     const { error } = await supabase
-      .from('users')
+      .from('safety_users')
       .delete()
       .eq('device_fingerprint', deviceFingerprint);
 

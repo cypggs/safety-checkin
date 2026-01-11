@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
 
     const { data: inactiveUsers, error: usersError } = await supabase
-      .from('users')
+      .from('safety_users')
       .select('*')
       .or(`last_checkin_at.is.null,last_checkin_at.lt.${twoDaysAgo.toISOString()}`);
 
@@ -55,7 +55,7 @@ export async function GET(request: NextRequest) {
     for (const user of inactiveUsers) {
       // Check if alert already sent recently
       const { data: recentAlerts } = await supabase
-        .from('alerts')
+        .from('safety_alerts')
         .select('*')
         .eq('user_id', user.id)
         .gte('sent_at', oneDayAgo.toISOString())
@@ -160,7 +160,7 @@ async function sendAlert(user: any) {
     }
 
     // Record alert in database
-    await supabase.from('alerts').insert({
+    await supabase.from('safety_alerts').insert({
       user_id: user.id,
       method: 'email',
       delivered,

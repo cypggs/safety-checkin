@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
 
     // Check if user already exists with this device fingerprint
     const { data: existingUser } = await supabase
-      .from('users')
+      .from('safety_users')
       .select('*')
       .eq('device_fingerprint', deviceFingerprint)
       .single();
@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     if (existingUser) {
       // Update existing user
       const { data, error } = await supabase
-        .from('users')
+        .from('safety_users')
         .update({
           name,
           emergency_email: emergencyEmail,
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
 
     // Create new user
     const { data, error } = await supabase
-      .from('users')
+      .from('safety_users')
       .insert({
         device_fingerprint: deviceFingerprint,
         name,

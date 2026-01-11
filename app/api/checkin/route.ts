@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
 
     // First, get the user
     const { data: user, error: userError } = await supabase
-      .from('users')
+      .from('safety_users')
       .select('*')
       .eq('device_fingerprint', deviceFingerprint)
       .single();
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
 
     // Create a check-in record
     const { data: checkin, error: checkinError } = await supabase
-      .from('checkins')
+      .from('safety_checkins')
       .insert({
         user_id: user.id,
         user_agent: request.headers.get('user-agent'),
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
 
     // Update user
     const { error: updateError } = await supabase
-      .from('users')
+      .from('safety_users')
       .update({
         last_checkin_at: now.toISOString(),
         checkin_streak: newStreak,
@@ -120,7 +120,7 @@ export async function GET(request: NextRequest) {
 
     // Get the user
     const { data: user, error: userError } = await supabase
-      .from('users')
+      .from('safety_users')
       .select('id')
       .eq('device_fingerprint', deviceFingerprint)
       .single();
@@ -134,7 +134,7 @@ export async function GET(request: NextRequest) {
 
     // Get check-in history
     const { data: checkins, error: checkinsError } = await supabase
-      .from('checkins')
+      .from('safety_checkins')
       .select('*')
       .eq('user_id', user.id)
       .order('checked_in_at', { ascending: false })
