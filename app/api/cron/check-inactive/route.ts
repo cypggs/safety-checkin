@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
+import CryptoJS from 'crypto-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const resendApiKey = process.env.RESEND_API_KEY;
 const cronSecret = process.env.CRON_SECRET;
+const encryptionKey = process.env.NEXT_PUBLIC_ENCRYPTION_KEY || 'safety-checkin-default-key';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
@@ -101,9 +103,9 @@ export async function GET(request: NextRequest) {
 
 async function sendAlert(user: any) {
   try {
-    // Decrypt emergency email (in production, this would use proper encryption)
-    const emergencyEmail = user.emergency_email;
-    const userName = user.name;
+    // Decrypt emergency email and user name
+    const emergencyEmail = CryptoJS.AES.decrypt(user.emergency_email, encryptionKey).toString(CryptoJS.enc.Utf8);
+    const userName = CryptoJS.AES.decrypt(user.name, encryptionKey).toString(CryptoJS.enc.Utf8);
     const lastCheckin = user.last_checkin_at
       ? new Date(user.last_checkin_at).toLocaleString(user.language === 'zh' ? 'zh-CN' : 'en-US')
       : user.language === 'zh' ? '从未签到' : 'Never checked in';
@@ -159,7 +161,7 @@ async function sendAlert(user: any) {
       errorMessage = 'Resend API key not configured';
     }
 
-    // Record alert in database
+    // Record alert in database (store decrypted email for audit)
     await supabase.from('safety_alerts').insert({
       user_id: user.id,
       method: 'email',
