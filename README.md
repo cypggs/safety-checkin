@@ -2,6 +2,10 @@
 
 A minimalist web application for solo-living individuals to check in daily and alert emergency contacts if inactive for 2+ days. Inspired by the viral Chinese iOS app "死了么".
 
+小程序版本也上线了哈
+![gh_7ea08976df35_258](https://github.com/user-attachments/assets/9d5242db-08d1-4886-99bf-40a76dd574f7)
+
+
 ## Features
 
 - **Daily Check-in System**: Simple one-button check-in interface
